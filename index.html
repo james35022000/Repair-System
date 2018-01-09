@@ -1,0 +1,97 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>
+		報修系統
+	</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link href="http://fonts.googleapis.com/css?family=Varela" rel="stylesheet" />
+	<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+	<script src="jquery.cookie.js" type="text/javascript"></script>
+	<script src="main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header" class="container">
+			<div id="logo">
+				<h1><a href="#Homepage">報修系統</a></h1>
+				<h5>UID: </h5>
+			</div>
+			<div id="menu">
+				<ul>
+					<li class="current_page_item" id="menu_1"><a href="#Homepage">Homepage</a></li>
+					<li id="menu_2"><a href="#Contact">Contact</a></li>
+					<li id="menu_3"><a href="#About">About</a></li>
+					<li id="menu_4"><a href="#SignOut">Sign Out</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="extra" class="container">
+		<div id="Homepage">
+			<div class="title">
+				<h2>歡迎來到報修系統</h2>
+				<span class="byline">請選擇服務項目</span> </div>
+			<div id="three-column">
+				<div class="boxA" id="boxA">
+					<div class="box" id="box"> <span class="fa fa-wrench"></span>
+						<p>報修</p>
+					</div>
+				</div>
+				<div class="boxB" id="boxB">
+					<div class="box"> <span class="fa fa-search"></span>
+						<p>查詢</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="Login">
+			<div class="title">
+				<h2>請登入系統</h2>
+			</div>
+			<form id="login-form" action="login.php" method="post">
+				<div class="login-block">
+					<span class="login-label"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+					<input class="login-input" type="text" id="login-account" placeholder="Account" name="login-account"/>
+				</div>
+				<div class="login-block">
+					<span class="login-label"><i class="fa fa-key fa-fw" aria-hidden="true"></i></span>
+					<input class="login-input" type="password" id="login-password" placeholder="Password" name="login-password"/>
+				</div>
+				<div class="login-block">
+					<input type="submit" id="login-submit" value="Login"/>
+				</div>
+			</form>
+		</div>
+		<div id="Contact">
+			<div class="title">
+				<h2>Call Me Maybe!</h2>
+				<span class="byline">or send to me!</span> </div>
+			</div>
+			<div class="cantact-info">
+				<span class="contact-label"><i class="fa fa-phone" aria-hidden="true"></i><span>
+				<span class="contact-label"><i class="fa fa-phone" aria-hidden="true"></i><span>
+			</div>
+		</div>
+		<div id="About">
+			<div class="title">
+				<h2>About Us</h2>
+			</div>
+		</div>
+		<div id="SignOut">
+			<div class="title">
+				<h2>Are You Sure To Sign Out?</h2>
+			</div>
+			<button type="button" id="signout-button">Sure</button>
+		</div>
+	</div>
+</div>
+<div id="copyright" class="container">
+	<p>&copy; Untitled. All rights reserved. | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+</div>
+</body>
+</html>
