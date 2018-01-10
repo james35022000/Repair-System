@@ -513,6 +513,42 @@
 	color: #555;
 	text-align: center;
 }
+#login-account
+{
+	font-size: 1em;
+}
+	
+#login-password
+{
+	font-size: 1em;
+}
+
+#Contact
+{
+	display: none;
+	text-align: center;
+}
+
+#Contact .contact-info
+{
+	margin: 0 auto;
+	border-radius: 4px;
+	border: 1px solid rgba(0,0,0,0.1);
+	width: 320px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#Contact .contact-label
+{
+	display: inline-block;
+	width: 30px;
+	font-size: 14px;
+	font-weight: normal;
+	color: #555;
+	text-align: center;
+	line-height: 1;
+}
 
 
 	#extra
@@ -535,16 +571,6 @@
 		text-align: center;
 		font-size: 3em;
 	}
-	
-	#login-account
-	{
-		font-size: 1em;
-	}
-	
-	#login-password
-	{
-		font-size: 1em;
-	}
 
 	#Homepage
 	{
@@ -557,12 +583,6 @@
 	}
 	
 	#SignOut
-	{
-		display: none;
-		text-align: center;
-	}
-	
-	#Contact
 	{
 		display: none;
 		text-align: center;

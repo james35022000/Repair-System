@@ -34,16 +34,24 @@ $(document).ready(function() {
 	/************************
 	* Menu Selector
 	*************************/
-	var Menu_Tag = ["#Login", "#Contact", "#About", "#SignOut"];
+	var Menu_Tag = ["#Homepage", "#Contact", "#About", "#Login"];
 	var Last_Menu = 0;
 	
-	// If login, set Homepage to #Homepage.
 	if(!!$.cookie('User')) {
-		Menu_Tag[0] = "#Homepage";
+		Menu_Tag[3] = "#SignOut";
+		$("#menu > ul > #menu_1").addClass("current_page_item");
+		$("#menu > ul #menu_4 > a").text("Sign Out");
+		$(Menu_Tag[0]).fadeIn();
+		Last_Menu = 0;
 	}
-	$(Menu_Tag[0]).fadeIn();
-	Last_Menu = 0;
+	else {
+		$("#menu > ul > #menu_4").addClass("current_page_item");
+		$("#menu > ul #menu_4 > a").text("Login");
+		$(Menu_Tag[3]).fadeIn();
+		Last_Menu = 3;
+	}
 	
+	// menu_1
 	$("#menu > ul > #menu_1").mouseenter(
 	  function() {
 		$("#menu > ul > #menu_1 > a").css("color", "#777");
@@ -56,7 +64,14 @@ $(document).ready(function() {
 	);
 	$("#menu > ul > #menu_1").click(
 	  function() {
-		showPage(0);
+		if(!!$.cookie('User')) {
+			showPage(0);
+		}
+		else {
+			if(Last_Menu != 3) {
+				showPage(3);
+			}
+		}
 	  }
 	);
 	// menu_2
@@ -128,8 +143,9 @@ $(document).ready(function() {
 	  function() {
 		if(!!$.cookie('User')) {
 			$.removeCookie('User');
-			Menu_Tag[0] = "#Login";
-			showPage(0);
+			$("#menu > ul #menu_4 > a").text("Login");
+			$("#SignOut").fadeOut("fast", function() { $("#Login").fadeIn() });
+			Menu_Tag[3] = "#Login";
 		}
 	  }
 	);
