@@ -143,8 +143,10 @@ $(document).ready(function() {
 	  function() {
 		if(!!$.cookie('User')) {
 			$.removeCookie('User');
-			$("#menu > ul #menu_4 > a").text("Login");
-			$("#SignOut").fadeOut("fast", function() { $("#Login").fadeIn() });
+			$("#SignOut").fadeOut("fast", function() { 
+												$("#Login").fadeIn();
+												$("#menu > ul #menu_4 > a").text("Login");
+											});
 			Menu_Tag[3] = "#Login";
 		}
 	  }
