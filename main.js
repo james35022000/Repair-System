@@ -44,6 +44,14 @@ $(document).ready(function() {
 		$(Menu_Tag[0]).fadeIn();
 		Last_Menu = 0;
 	}
+	else if(!!$.cookie('Error')) {
+		$.removeCookie('Error');
+		$("#Login > div > span").text("Account or password not found.");
+		$("#menu > ul > #menu_4").addClass("current_page_item");
+		$("#menu > ul #menu_4 > a").text("Login");
+		$(Menu_Tag[3]).fadeIn();
+		Last_Menu = 3;
+	}
 	else {
 		$("#menu > ul > #menu_4").addClass("current_page_item");
 		$("#menu > ul #menu_4 > a").text("Login");
@@ -70,6 +78,9 @@ $(document).ready(function() {
 		else {
 			if(Last_Menu != 3) {
 				showPage(3);
+			}
+			else {
+				$("#Login > div > span").text("Please login first.");
 			}
 		}
 	  }
@@ -119,6 +130,7 @@ $(document).ready(function() {
 	);
 	$("#menu > ul > #menu_4").click(
 	  function() {
+		$("#Login > div > span").text("");
 		showPage(3);
 	  }
 	);

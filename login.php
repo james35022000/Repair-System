@@ -25,6 +25,7 @@
 			
 	if (!$data){
 		$success = FALSE;
+		setcookie("Error", "Not Found", time() + 60) or die('unable to create cookie');
 	}
 	else{				
 		$success = TRUE;

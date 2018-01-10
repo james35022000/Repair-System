@@ -455,6 +455,17 @@
 {
 	font-size: 150%;
 }
+	
+#Login
+{
+	display: none;
+}
+
+#Login .title .byline
+{
+	color: #f00;
+	font-size: 20px;
+}
 
 #login-form
 {
@@ -573,11 +584,6 @@
 	}
 
 	#Homepage
-	{
-		display: none;
-	}
-	
-	#Login
 	{
 		display: none;
 	}
