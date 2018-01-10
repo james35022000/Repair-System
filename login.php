@@ -20,12 +20,21 @@
 		$password = $_POST['login-password'];
 	}
 			
+	if($account == "") {
+		setcookie("Error", "Account should not be empty.", time() + 60) or die('unable to create cookie');
+		exit();
+	}
+	if($password == "") {
+		setcookie("Error", "Password should not be empty.", time() + 60) or die('unable to create cookie');
+		exit();
+	}
+	
 	$query = mysql_query("SELECT * FROM `UserInfo` WHERE `UserId` = '$account' AND `Password` = '$password'");
 	$data = mysql_fetch_assoc($query);
 			
 	if (!$data){
 		$success = FALSE;
-		setcookie("Error", "Not Found", time() + 60) or die('unable to create cookie');
+		setcookie("Error", "Account or password not found.", time() + 60) or die('unable to create cookie');
 	}
 	else{				
 		$success = TRUE;

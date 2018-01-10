@@ -45,8 +45,8 @@ $(document).ready(function() {
 		Last_Menu = 0;
 	}
 	else if(!!$.cookie('Error')) {
+		$("#Login > div > span").text($.cookie('Error'));
 		$.removeCookie('Error');
-		$("#Login > div > span").text("Account or password not found.");
 		$("#menu > ul > #menu_4").addClass("current_page_item");
 		$("#menu > ul #menu_4 > a").text("Login");
 		$(Menu_Tag[3]).fadeIn();
