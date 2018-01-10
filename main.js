@@ -49,7 +49,12 @@ $(document).ready(function() {
 	*************************/
 	
 	if(!!$.cookie('Submit_Success')) {
-		
+		window.alert($.cookie('Submit_Success'));
+		$.removeCookie('Submit_Success');
+	}
+	else if(!!$.cookie('Submit_Error')) {
+		window.alert($.cookie('Submit_Error'));
+		$.removeCookie('Submit_Error');
 	}
 	
 	if(!!$.cookie('User')) {

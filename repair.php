@@ -21,12 +21,11 @@
 	}
 	else {
 		$insert = mysql_query("INSERT INTO RepairList (UserID, User, Email, Phone, Type, Subject) VALUES ('$_COOKIE[User]', '$user', '$email', '$phone', '$type', '$subject')");
-		$data = mysql_fetch_assoc($insert);
-		if (!$data) {
-			setcookie("Error", "Unknown error.", time() + 60) or die('unable to create cookie');
+		if (!$insert) {
+			setcookie("Submit_Error", "Unknown error.", time() + 60) or die('unable to create cookie');
 		}
 		else {
-			setcookie("Success", "Submit complete!", time() + 60) or die('unable to create cookie');
+			setcookie("Submit_Success", "Submit complete!", time() + 60) or die('unable to create cookie');
 		}
 	}
 ?>
