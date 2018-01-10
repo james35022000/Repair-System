@@ -84,10 +84,10 @@ $(document).ready(function() {
 	
 	// Login state
 	if(!!$.cookie('User')) {
-		// Submit Message
 		Menu_Tag[3] = "#SignOut";
 		$("#menu > ul > #menu_1").addClass("current_page_item");
 		$("#menu > ul #menu_4 > a").text("Sign Out");
+		$("#logo > h5").text("UID: " + $.cookie('User'));
 		$(Menu_Tag[0]).fadeIn();
 		Last_Page = Menu_Tag[0];
 	}
@@ -102,6 +102,7 @@ $(document).ready(function() {
 	else {
 		$("#menu > ul > #menu_4").addClass("current_page_item");
 		$("#menu > ul #menu_4 > a").text("Login");
+		$("#logo > h5").text("");
 		$(Menu_Tag[3]).fadeIn();
 		Last_Page = Menu_Tag[3];
 	}
@@ -205,6 +206,7 @@ $(document).ready(function() {
 			$("#SignOut").fadeOut("fast", function() { 
 												$("#Login").fadeIn();
 												$("#menu > ul #menu_4 > a").text("Login");
+												$("#logo > h5").text("");
 											});
 			Menu_Tag[3] = "#Login";
 			Last_Page = Menu_Tag[3];

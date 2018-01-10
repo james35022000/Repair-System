@@ -332,7 +332,15 @@
 	{
 		color: #FFF;
 	}
-	
+
+  #logo h5
+  {
+		position: absolute;
+		color: #009E2D;
+		bottom: -40px;
+		left: 10px;
+  }
+
 	#logo a
 	{
 		text-decoration: none;
