@@ -48,6 +48,10 @@ $(document).ready(function() {
 	* Menu Selector
 	*************************/
 	
+	if(!!$.cookie('Submit_Success')) {
+		
+	}
+	
 	if(!!$.cookie('User')) {
 		Menu_Tag[3] = "#SignOut";
 		$("#menu > ul > #menu_1").addClass("current_page_item");

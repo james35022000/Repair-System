@@ -55,19 +55,19 @@
 			</div>
 			<form class="repair-form" action="repair.php" method="post">
 				<span class="repair-label"><i class="fa fa-user" aria-hidden="true"></i></span>
-				<input type="text" id="name" name="name" placeholder="Name" required></input>
+				<input type="text" name="repair-user" placeholder="Name" required></input>
 				<br>
 				
 				<span class="repair-label"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-				<input type="email" id="email" name="email" placeholder="Email" required></input>
+				<input type="email" name="repair-email" placeholder="Email" required></input>
 				<br>
 				
 				<span class="repair-label"><i class="fa fa-phone-square"" aria-hidden="true"></i></span>
-				<input type="text" id="phone" name="phone" placeholder="Phone" required></input>
+				<input type="text" name="repair-phone" placeholder="Phone" required></input>
 				<br>
 				
 				<span class="repair-label"><i class="fa fa-list"" aria-hidden="true"></i></span>
-				<select id="type" name="type" >
+				<select name="repair-type" required>
 					<option value="" disabled selected>請選擇種類</option>
 					<option value="空調">空調</option>
 					<option value="家具">家具</option>
@@ -79,7 +79,7 @@
 				<input id="repair-submit" type="submit" value="提交">
 				<br>
 				
-				<textarea id="subject" name="subject" placeholder="待修問題描述.." required></textarea>
+				<textarea name="repair-subject" placeholder="待修問題描述.." required></textarea>
 				
 			</form>
 		</div>
