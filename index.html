@@ -49,6 +49,40 @@
 				</div>
 			</div>
 		</div>
+		<div id="Repair">
+			<div class="title">
+				<h2>請填寫表單</h2>
+			</div>
+			<form class="repair-form" action="repair.php" method="post">
+				<span class="repair-label"><i class="fa fa-user" aria-hidden="true"></i></span>
+				<input type="text" id="name" name="name" placeholder="Name" required></input>
+				<br>
+				
+				<span class="repair-label"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+				<input type="email" id="email" name="email" placeholder="Email" required></input>
+				<br>
+				
+				<span class="repair-label"><i class="fa fa-phone-square"" aria-hidden="true"></i></span>
+				<input type="text" id="phone" name="phone" placeholder="Phone" required></input>
+				<br>
+				
+				<span class="repair-label"><i class="fa fa-list"" aria-hidden="true"></i></span>
+				<select id="type" name="type" >
+					<option value="" disabled selected>請選擇種類</option>
+					<option value="空調">空調</option>
+					<option value="家具">家具</option>
+					<option value="門窗">門窗</option>
+					<option value="門窗">其他</option>
+				</select>
+				<br>
+				
+				<input id="repair-submit" type="submit" value="提交">
+				<br>
+				
+				<textarea id="subject" name="subject" placeholder="待修問題描述.." required></textarea>
+				
+			</form>
+		</div>
 		<div id="Contact">
 			<div class="title">
 				<h2>Call Me Maybe</h2>

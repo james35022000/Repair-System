@@ -1,3 +1,10 @@
+var MENU_MODE = 0;
+var BOX_MODE = 1;
+
+var Menu_Tag = ["#Homepage", "#Contact", "#About", "#Login"];
+var Page_Tag = ["#Repair", "Search"];
+var Last_Page = "#Homepage";
+
 $(document).ready(function() {
 	/************************
 	* Box Selector
@@ -13,6 +20,12 @@ $(document).ready(function() {
 	  function() {
 		$("#boxA > div").css("background-color", "#fff");
 		$("#boxA > div > p").css("color", "#222");
+	  }
+	);
+	
+	$('.boxA').click(
+	  function() {
+		showPage(0, BOX_MODE);
 	  }
 	);
 	
@@ -34,15 +47,13 @@ $(document).ready(function() {
 	/************************
 	* Menu Selector
 	*************************/
-	var Menu_Tag = ["#Homepage", "#Contact", "#About", "#Login"];
-	var Last_Menu = 0;
 	
 	if(!!$.cookie('User')) {
 		Menu_Tag[3] = "#SignOut";
 		$("#menu > ul > #menu_1").addClass("current_page_item");
 		$("#menu > ul #menu_4 > a").text("Sign Out");
 		$(Menu_Tag[0]).fadeIn();
-		Last_Menu = 0;
+		Last_Page = Menu_Tag[0];
 	}
 	else if(!!$.cookie('Error')) {
 		$("#Login > div > span").text($.cookie('Error'));
@@ -50,13 +61,13 @@ $(document).ready(function() {
 		$("#menu > ul > #menu_4").addClass("current_page_item");
 		$("#menu > ul #menu_4 > a").text("Login");
 		$(Menu_Tag[3]).fadeIn();
-		Last_Menu = 3;
+		Last_Page = Menu_Tag[3];
 	}
 	else {
 		$("#menu > ul > #menu_4").addClass("current_page_item");
 		$("#menu > ul #menu_4 > a").text("Login");
 		$(Menu_Tag[3]).fadeIn();
-		Last_Menu = 3;
+		Last_Page = Menu_Tag[3];
 	}
 	
 	// menu_1
@@ -73,14 +84,14 @@ $(document).ready(function() {
 	$("#menu > ul > #menu_1").click(
 	  function() {
 		if(!!$.cookie('User')) {
-			showPage(0);
+			showPage(0, MENU_MODE);
 		}
 		else {
-			if(Last_Menu != 3) {
-				showPage(3);
-			}
-			else {
-				$("#Login > div > span").text("Please login first.");
+			$("#Login > div > span").text("Please login first.");
+			if(Last_Page != Menu_Tag[3]) {
+				Menu_Tag[3] = "#Login";
+				$("#menu > ul #menu_4 > a").text("Login");
+				showPage(3, MENU_MODE);
 			}
 		}
 	  }
@@ -98,7 +109,7 @@ $(document).ready(function() {
 	);
 	$("#menu > ul > #menu_2").click(
 	  function() {
-		showPage(1);
+		showPage(1, MENU_MODE);
 	  }
 	);
 	// menu_3
@@ -114,7 +125,7 @@ $(document).ready(function() {
 	);
 	$("#menu > ul > #menu_3").click(
 	  function() {
-		showPage(2);
+		showPage(2, MENU_MODE);
 	  }
 	);
 	// menu_4
@@ -131,7 +142,7 @@ $(document).ready(function() {
 	$("#menu > ul > #menu_4").click(
 	  function() {
 		$("#Login > div > span").text("");
-		showPage(3);
+		showPage(3, MENU_MODE);
 	  }
 	);
 	
@@ -160,16 +171,25 @@ $(document).ready(function() {
 												$("#menu > ul #menu_4 > a").text("Login");
 											});
 			Menu_Tag[3] = "#Login";
+			Last_Page = Menu_Tag[3];
 		}
 	  }
 	);
 
-	function showPage(index) {
-		if(index != Last_Menu) {
-			$("#menu > ul > #menu_" + (Last_Menu + 1)).removeClass("current_page_item");
-			$(Menu_Tag[Last_Menu]).fadeOut("fast", function() { $(Menu_Tag[index]).fadeIn() });
-			$("#menu > ul > #menu_" + (index + 1)).addClass("current_page_item");
-			Last_Menu = index;
+	function showPage(index, mode) {
+		switch(mode) {
+			case MENU_MODE:
+				if(Menu_Tag[index] != Last_Page) {
+					$("#menu > ul > .current_page_item").removeClass("current_page_item");
+					$(Last_Page).fadeOut("fast", function() { $(Menu_Tag[index]).fadeIn() });
+					$("#menu > ul > #menu_" + (index + 1)).addClass("current_page_item");
+					Last_Page = Menu_Tag[index];
+				}
+				break;
+			case BOX_MODE:
+				$(Last_Page).fadeOut("fast", function() { $(Page_Tag[index]).fadeIn() });
+				Last_Page = Page_Tag[index];
+				break;
 		}
 	}
 	
