@@ -2,7 +2,7 @@ var MENU_MODE = 0;
 var BOX_MODE = 1;
 
 var Menu_Tag = ["#Homepage", "#Contact", "#About", "#Login"];
-var Page_Tag = ["#Repair", "Search"];
+var Page_Tag = ["#Repair", "#Search"];
 var Last_Page = "#Homepage";
 
 $(document).ready(function() {
@@ -43,11 +43,36 @@ $(document).ready(function() {
 	  }
 	);
 	
+	$('.boxB').click(
+	  function() {
+		$.ajax({
+			type :"GET",
+            url  : "search.php",
+            dataType: "text",
+            success : function(data) {
+						if(data != "") {
+							result = data.split(";");
+							html = "<table class=\"search-table\"><tr><th width=\"60px\">CaseID</th><th width=\"80px\">姓名</th><th width=\"60px\">種類</th><th width=\"300px\">問題描述</th><th width=\"150px\">時間</th><th width=\"40px\">完成</th><th width=\"100px\">備註</th></tr>";
+							for(i = 0; i < result.length - 1; i++) {
+								line = result[i].split(",");
+								html += ("<tr><th width=\"60px\">" + line[0] + "</th><th width=\"80px\">" + line[1] + "</th><th width=\"60px\">" + line[2] + "</th><th width=\"300px\">" + line[3] + "</th><th width=\"150px\">" + line[4] + "</th><th width=\"40px\">" + line[5] + "</th><th width=\"100px\">" + line[6] + "</th></tr>")
+							}
+							html += "</table>"
+							$("#Search > form").html(html);
+						}
+						else {
+							$("#Search > form").html("<h3>" + "Oops, nothing here" + "</h3>");
+						}
+						showPage(1, BOX_MODE);
+			        }
+        });
+	  }
+	);
+	
 	
 	/************************
 	* Menu Selector
 	*************************/
-	
 	if(!!$.cookie('Submit_Success')) {
 		window.alert($.cookie('Submit_Success'));
 		$.removeCookie('Submit_Success');
@@ -57,7 +82,9 @@ $(document).ready(function() {
 		$.removeCookie('Submit_Error');
 	}
 	
+	// Login state
 	if(!!$.cookie('User')) {
+		// Submit Message
 		Menu_Tag[3] = "#SignOut";
 		$("#menu > ul > #menu_1").addClass("current_page_item");
 		$("#menu > ul #menu_4 > a").text("Sign Out");
