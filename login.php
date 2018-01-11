@@ -10,7 +10,7 @@
 		die('Could not connect: '. mysql_error());
 	}
 	
-	// Prevent from sql injection.
+	// Prevent sql injection.
 	if(!get_magic_quotes_gpc()) {
 		$account = addslashes($_POST['login-account']);
 		$password = addslashes($_POST['login-password']);
